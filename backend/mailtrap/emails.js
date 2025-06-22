@@ -32,7 +32,7 @@ export const sendWelcomeEmail = async (email, name) => {
 		const response = await mailtrapClient.send({
 			from: sender,
 			to: recipient,
-			template_uuid: "e65925d1-a9d1-4a40-ae7c-d92b37d593df",
+			template_uuid: "3cb77a97-1027-405f-8de6-6ee4c8dd98db",
 			template_variables: {
 				company_info_name: "Auth Company",
 				name: name,
@@ -49,7 +49,7 @@ export const sendWelcomeEmail = async (email, name) => {
 
 export const sendPasswordResetEmail = async (email, resetURL) => {
 	const recipient = [{ email }];
-
+  console.log("📨 Envoi de l'email de reset à :", recipient); 
 	try {
 		const response = await mailtrapClient.send({
 			from: sender,
@@ -58,6 +58,7 @@ export const sendPasswordResetEmail = async (email, resetURL) => {
 			html: PASSWORD_RESET_REQUEST_TEMPLATE.replace("{resetURL}", resetURL),
 			category: "Password Reset",
 		});
+    console.log("✅ Email envoyé avec succès :", response); 
 	} catch (error) {
 		console.error(`Error sending password reset email`, error);
 
