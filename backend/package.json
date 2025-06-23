@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
   "dependencies": {
     "@sendgrid/mail": "^8.1.5",
@@ -16,6 +17,10 @@
     "mongoose": "^7.0.3"
   },
   "devDependencies": {
-    "nodemon": "^2.0.22"
+    "@jest/globals": "^30.0.2",
+    "jest": "^30.0.2",
+    "node-mocks-http": "^1.17.2",
+    "nodemon": "^2.0.22",
+    "supertest": "^7.1.1"
   }
 }
